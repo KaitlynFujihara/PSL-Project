@@ -26,6 +26,14 @@ h3{
 
 }
 
+.jumbotron {
+	background-image:url("https://raw.githubusercontent.com/KaitlynFujihara/PSL-Project/master/PSL%20Pic/moneyshot.png");
+	background-repeat: no-repeat;
+	background-color:white;
+	position:right;
+	margin-left:9%;
+	margin-right:9%;
+	
 .jumbotron h1{
 	color: white;
     text-shadow:
@@ -35,13 +43,6 @@ h3{
     1px 1px 0 #000;
 }
 
-.jumbotron {
-	background-image:url("https://raw.githubusercontent.com/KaitlynFujihara/PSL-Project/master/PSL%20Pic/moneyshot.png");
-	background-repeat: no-repeat;
-	background-color:white;
-	position:right;
-	margin-left:9%;
-	margin-right:9%;
 	
 }
 
