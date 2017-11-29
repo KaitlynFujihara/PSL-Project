@@ -29,9 +29,7 @@ h3{
 .jumbotron {
 	background-image:url("https://raw.githubusercontent.com/KaitlynFujihara/PSL-Project/master/PSL%20Pic/moneyshot.png");
 	background-repeat: no-repeat;
-	background-color:white;
-	margin-right: 9%;
-	margin-left: 9%;
+	background-size:cover;
 }
 	
 .jumbotron h1{
