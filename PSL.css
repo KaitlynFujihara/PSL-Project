@@ -1,0 +1,42 @@
+h1 { 
+	font-family:'Lobster', cursive;
+	text-align: center;
+    
+}
+h2 {
+	font-family:Lato;
+	text-align: center;
+}
+
+h3{
+	text-align:center;
+	font-family: 'Lobster', cursive;
+
+}
+
+.thumbnail {
+	height:470px;
+}
+
+.close-image {
+	position:relative;
+}
+
+.jumbotron h1{
+	color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.jumbotron {
+	background-image:url("moneyshot.png");
+}
+
+}
+
+#navbar-form navbar-left {
+	text-align:center;
+}
