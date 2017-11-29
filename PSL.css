@@ -12,11 +12,11 @@ h3{
 	text-align:center;
 	font-family: 'Lobster', cursive;
 
+
 }
-
-
 .thumbnail {
 	height:470px;
+	border-color: #cc830e;
 }
 
 .close-image {
@@ -31,8 +31,8 @@ h3{
 	background-repeat: no-repeat;
 	background-color:white;
 	position:right;
-	margin-left:9%;
-	margin-right:9%;
+	margin-right: 9%;
+	margin-left: 15%;
 }
 	
 .jumbotron h1{
@@ -42,7 +42,6 @@ h3{
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-	
 }
 
 #navbar-form navbar-left {
