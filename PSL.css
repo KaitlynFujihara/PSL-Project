@@ -14,12 +14,16 @@ h3{
 
 }
 
+
 .thumbnail {
 	height:470px;
 }
 
 .close-image {
 	position:relative;
+	position:center;
+	bottom:15px;
+
 }
 
 .jumbotron h1{
@@ -32,9 +36,13 @@ h3{
 }
 
 .jumbotron {
-	background-image:url("moneyshot.png");
-}
-
+	background-image:url("https://raw.githubusercontent.com/KaitlynFujihara/PSL-Project/master/PSL%20Pic/moneyshot.png");
+	background-repeat: no-repeat;
+	background-color:white;
+	position:right;
+	margin-left:9%;
+	margin-right:9%;
+	
 }
 
 #navbar-form navbar-left {
