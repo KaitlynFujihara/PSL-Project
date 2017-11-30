@@ -19,7 +19,7 @@ h3{
 }
 .thumbnail {
 	height:470px;
-	border-color: #cc830e;
+	border-color: white;
 }
 
 .close-image {
@@ -46,3 +46,6 @@ h3{
 #navbar-form navbar-left {
 	text-align:center;
 }
+
+#updates {
+height:1475px;}
