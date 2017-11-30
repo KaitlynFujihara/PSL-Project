@@ -11,7 +11,7 @@ if (pass1.toLowerCase() == "tistheseason")
 if (userName == "Decayed" || userName == "Nachu"|| userName == "Joni"|| userName == "Dr. Ginn"
 	|| userName == "Kabochan"|| userName == "Claptrap"|| userName == "Niarb"|| userName == "がつ月ガツ"
 	|| userName == "みーちゃん"|| userName == "Brandon") {
-alert('Welcome back, ' + userName);
+alert('Welcome back, ' + userName + '!');
 window.open('PSLmain.html');
 break;
 } 
