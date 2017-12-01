@@ -1,0 +1,18 @@
+body {
+	background-image:url("https://raw.githubusercontent.com/KaitlynFujihara/PSL-Project/master/KH%20Images/wallpaper%202.jpg");
+}
+
+h1 {
+	color:white;
+	font-family:'Lobster', cursive;
+}
+
+h3 {
+	color:white;
+}
+
+#content {
+	text-align: center;
+	padding-top:25%;
+
+}
