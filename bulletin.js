@@ -1,212 +1,208 @@
-if (!window.chatter) {
-			window.chatter = function() { return this; }();
-		}
-		if (!window.chatter.embeds) {
-			window.chatter.embeds = {};
-		}
-		window.chatter.embed = function(host, args) {
-			var host = host;
-			var cid = Math.floor((Math.random())*1000000000).toString();
-			var default_height = 1600;
-			var embed_url = window.location.href.split('#')[0];
 
-			var current_path = window.location.hash.substr(1);
-			var disable_path = current_path && current_path[0] != "/";
-			disable_path |= (window != top);
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>All Forums</title>
 
-			if (!current_path || disable_path) {
-				if (!current_path && !disable_path) {
-					location.href = embed_url + "#/";
-				}
-				current_path = "/";
-			}
+    
+        <link href="//d2sjsmw136j7l.cloudfront.net/bundle/8fab5cf1/forum.css" media="screen, projection"  type="text/css" rel="stylesheet">
+        
+    
 
-			if (window.gadgets)
-				embed_url = ''; // Don't let the site change the hash
+    
+    
 
-			window.chatter.embeds[cid] = this;
 
-			handleCommand = function (cmd) {
-				if (cmd[0] == 'ch_resize') {
-					resizeFrame(cmd[1]);
-				} else if (cmd[0] == 'ch_load') {
-					if (disable_path)
-						current_path = cmd[1];
-					else {
-						current_path = window.location.hash.substr(1);
-						if (current_path != cmd[1]) {
-							current_path = cmd[1];
-							location.href = embed_url + "#" + current_path;
-						}
-					}
-				} else if (cmd[0] == 'ch_unload') {
-					if (window.attachEvent || findPosScroll('chatterframe'+cid) < 0)
-						document.getElementById('chatterframe'+cid).scrollIntoView(true);
-					// resizeFrame(default_height);
-				} else if (cmd[0] == 'ch_scrollto') {
-					window.scrollTo(0, findPos('chatterframe'+cid)+parseInt(cmd[1], 10));
-				} else if (cmd[0] == 'ch_delfoot'){
-					var a = document.getElementById(cmd[1]);
-					a.parentNode.removeChild(a);
-				}
-			}
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//d2sjsmw136j7l.cloudfront.net/bundle/8fab5cf1/forum.js"></script>
+    
+    
+    
+    
+    <script type="text/javascript">window.page_name = 'root'</script>
+    
+    <script type="text/javascript">
+    function login_dialog() {
+        window.open((("https:" == document.location.protocol) ? "https://" : "http://") + location.host + "/_rpx/", "loginwindow", "status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,width=407,height=176");
+    }
+    </script>
+    
+    
+    
+</head>
+<body>
+    
+    <script type="text/javascript">
+      
 
-			if (window.postMessage) {
-				function onMessage(e) {
-					var cmd = e.data.split(':');
-					var frame = document.getElementById('chatterframe'+cid);
-					if (frame.contentWindow != e.source)
-						return;
-					handleCommand(cmd);
-				}
-				if (window.addEventListener)
-					window.addEventListener("message", onMessage, false);
-				else
-					window.attachEvent("onmessage", onMessage);
-			} else {
-				/* Fall back for browsers that don't support HTML5's postMessage */
-				var msg_seq = null;
-				function checkMessages() {
-					var chatter_frame = window.frames['chatterframe'+cid];
-					if (!chatter_frame)
-						return;
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2543406-16']);
+      _gaq.push(
+            ['_setCustomVar', 1, 'Host', 'talki', 3],
+            
+            ['_trackPageview']
+      );
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+      })();
+    </script>
+    
+    
+    <div id="base_nav">
+        <div style="float:right;">
+            
+            
+            
+            <a href="/members/">Members</a>
+            
+                | 
+    
+    <a onclick="login_dialog(); false;" href="#">Sign In</a>
+    
 
-					try {
-						var bus = chatter_frame.frames.msg_frame;
-						var hash = bus.location.hash.substr(10);
-					} catch(e) {
-						return;
-					}
+            
+        </div>
+        <a href="/" onclick="_gaq.push(['_trackEvent', 'flow', 'site_name_header']);">All Forums</a>
+    </div>
+    
 
-					var cmd = hash.split(':');
-					var seq = cmd[0];
-					if (msg_seq == seq)
-						return;
-					msg_seq = seq;
-					cmd.splice(0, 1);
-					handleCommand(cmd);
-				}
-				setInterval(checkMessages, 300);
-			}
+    
 
-			function checkHash() {
-				var path = window.location.hash.substr(1);
-				if (!path)
-					path = "/";
+    
+    
+    
+    
+    <div id="base_header">
+        
+            
+            <div>
+                
+                
+    
+    <a onclick="login_dialog(); false;" href="#"><span class="login_button facebook_login"></span></a>
+    
 
-				if (path != current_path) {
-					current_path = path;
-					window.frames['chatterframe'+cid].location.replace(buildURL(path));
-				}
-			}
+            </div>
+            
+        
+    </div>
+    
+    <div id="base_content">
+        
+<div id="root_page">
 
-			if (!window.gadgets) {
-				if (!disable_path) {
-					if ("onhashchange" in window) {
-						if (window.addEventListener)
-							window.addEventListener("hashchange", checkHash, false);
-						else
-							window.attachEvent("onhashchange", checkHash);
-					} else {
-						setInterval(checkHash, 300);
-					}
-				}
-			}
+    
+    <div class="paginator">
+        <div class="total">
+            2 forums
+        </div>
+    </div>
 
-			function buildURL(path) {
-				return (("https:" == document.location.protocol) ? "https://" : "http://") + host + path + "?" + args + "&cid=" + cid + "&eh=" + encodeURIComponent(embed_url);
-			}
 
-			function resizeFrame(height) {
-				var el = document.getElementById('chatterframe'+cid);
-				el.style['height'] = height + "px";
-				if (window.gadgets) {
-					gadgets.window.adjustHeight();
-				}
-			}
+    <ul id="category_list">
+    
 
-			function findPosScroll(id) {
-				var node = document.getElementById(id);
-				var curtop = 0;
-				var curtopscroll = 0;
-				if (node.offsetParent) {
-					do {
-						curtop += node.offsetTop;
-						curtopscroll += node.offsetParent ? node.offsetParent.scrollTop : 0;
-					} while (node = node.offsetParent);
-					return curtop - curtopscroll;
-				}
-				return -1;
-			}
+        
 
-			function findPos(id) {
-				var node = document.getElementById(id);
-				var curtop = 0;
-				if (node.offsetParent) {
-					do {
-						curtop += node.offsetTop;
-					} while (node = node.offsetParent);
-					return curtop;
-				}
-				return -1;
-			}
+        
+            
+            
+                <li class="category" id="category_3942326">
+                    <div class="meta">
+                        0 posts
+                    </div>
+                    <h3><a href="/news/">News</a></h3>
+                    <div class="description">
+                        
+                        Community news
+                        
+                    </div>
+                </li>
+            
+        
+            
+            
+                <li class="category" id="category_3942327">
+                    <div class="meta">
+                        0 posts
+                    </div>
+                    <h3><a href="/offtopic/">Off-topic</a></h3>
+                    <div class="description">
+                        
+                        All things off-topic
+                        
+                    </div>
+                </li>
+            
+        
 
-			//--Auto Theming:
-			try{
-				var theme_args = '';
-				if (window.chatter_options) {
-					if ('css_append' in window.chatter_options) {
-						theme_args = '&cssa='+encodeURIComponent(window.chatter_options['css_append']);
-					} else if ('css_replace' in window.chatter_options) {
-						theme_args = '&cssr='+encodeURIComponent(window.chatter_options['css_replace']);
-					}
-				}
-				if (theme_args === '') {
-					document.write("<span id='probe"+cid+"'></span>");
-					var op = document.getElementById('probe'+cid);
-					var p = op;
-					var i = 0;
-					var color = null;
-					var font = null;
-					while (i < 1000){
-						p = p.parentNode;
-						if (window.getComputedStyle) {
-							var style = window.getComputedStyle(p, null);
-							color = style.getPropertyValue('background-color');
-						} else {
-							color = p.currentStyle.backgroundColor;
-						}
-						if(color != 'transparent' && color != '' && color != 'rgba(0, 0, 0, 0)') {
-							break;
-						}
-						color = null;
-						i++;
-					}
-					if (window.getComputedStyle) {
-						var style = window.getComputedStyle(op, null);
-						font = style.getPropertyValue('font-family');
-					} else {
-						font = op.currentStyle.fontFamily;
-					}
+    
+    </ul>
 
-					//ie8 no like this
-					//delete op.parentNode.removeChild(op);
+    <div class="paginator">
+        <div class="total">
+            &nbsp;
+        </div>
+    </div>
+    
+   <div class="new_members section">
+       <h3>New Members (1 total members)</h3>
+       <div class="member_list">
+       
+           <img src="//d2sjsmw136j7l.cloudfront.net/img/default-avatar.png" width="50" height="50" alt="avatar" title="user2906883">
+       
+       </div>
+       <a href="/members/">See all</a>
+   </div>
 
-					if (font)
-						font = font.replace(/[\'\"]/g,'');
+</div>
 
-					theme_args = '&f='+encodeURIComponent(font) +'&t='+encodeURIComponent(color)+'&nocss=1';
-				}
-			} catch(e) { }
+    </div>
+    <div id="base_footer">
+        
+        get your own <a href="//talkiforum.com" target="_blank" title="embeddable forum">embeddable forum</a> with talkiforum.com
+        
+    </div>
+    
+    <script type="text/javascript">
+      var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+      document.write(unescape("%3Cscript src='" + rpxJsHost + "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      RPXNOW.overlay = true;
+      RPXNOW.language_preference = 'en';
+    </script>
+    
+    
+    
+    <!-- Quantcast Tag -->
+    <script type="text/javascript">
+    var _qevents = _qevents || [];
 
-			var forum_code = "<iframe id='chatterframe"+cid+"' name='chatterframe"+cid+"' src='" + buildURL(current_path) + theme_args + "' style='width:100%; height:" + default_height + "px; border:0;' scrolling='no' frameborder='0' border='0' width='100%' height='" + default_height + "'></iframe>";
-			document.write(forum_code);
-			return this;
-		};
-		try {
-			if (window.location.hash.substr(0, 9) != "#msgframe")
-				window.chatter.embed('vspyy6dw9o.embed.talkiforum.com', '');
-		} catch(e) {
-			document.write("<div style='background-color:white; color:black';>Forum failed to load: " + e + "</div>");
-		}
-	
+    (function() {
+    var elem = document.createElement('script');
+    elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+    elem.async = true;
+    elem.type = "text/javascript";
+    var scpt = document.getElementsByTagName('script')[0];
+    scpt.parentNode.insertBefore(elem, scpt);
+    })();
+
+    _qevents.push({
+    qacct:"p-d9MIrkbpW88EA"
+    });
+    </script>
+
+    <noscript>
+    <div style="display:none;">
+    <img src="//pixel.quantserve.com/pixel/p-d9MIrkbpW88EA.gif" border="0" height="1" width="1" alt="Quantcast"/>
+    </div>
+    </noscript>
+    <!-- End Quantcast tag -->
+    
+    
+</body>
+</html>
