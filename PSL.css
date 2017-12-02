@@ -49,3 +49,46 @@ h3{
 
 #updates {
 height:1475px;}
+
+.header-logo
+{
+  width: 100%;
+  max-width: 458px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 121px);
+  left: calc(50% - 229px);
+  z-index: 1047;
+}
+
+.video-home {
+ 	float: left;
+ }
+
+#popup {
+            position:absolute;
+            margin:0 auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background-color:white;
+            cursor:move;
+    }
+
+#popupheader {
+	width:80%;
+          
+
+}    
+#close
+	{
+	background-color:white;
+	text-align:center;
+	position:absolute;
+            top:110%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+	}    
+
