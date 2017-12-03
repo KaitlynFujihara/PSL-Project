@@ -13,6 +13,7 @@ if (userName == "Decayed" || userName == "Nachu"|| userName == "Joni"|| userName
 	|| userName == "みーちゃん"|| userName == "Brandon") {
 alert('Welcome back, ' + userName + '!');
 window.open('PSLmain.html');
+
 break;
 } 
 testV+=1;
@@ -23,3 +24,4 @@ if (pass1.toLowerCase()!="password" & testV ==1)
 history.go(-1);
 return;
 } 
+

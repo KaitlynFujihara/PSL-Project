@@ -5,7 +5,7 @@ h1 {
 }
 h2 {
 	font-family:Lato;
-	text-align: center;
+	font-size: 20px;
 }
 
 h3{
@@ -65,21 +65,6 @@ height:1475px;}
  	float: left;
  }
 
-#popup {
-            position:absolute;
-            margin:0 auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            background-color:white;
-            cursor:move;
-    }
-
-#popupheader {
-	width:80%;
-          
-
 }    
 #close
 	{
@@ -90,5 +75,24 @@ height:1475px;}
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 9999;
-	}    
+
+}
+.twitter-timeline
+	{
+		width:100% !important;
+	}
+
+.media-right	{
+			width:30% !important;
+
+}
+
+#hoverText {
+	font-size: 25px;
+	font-family:'Lobster', cursive;
+	color:black;
+	display:block;
+
+}
+
 
